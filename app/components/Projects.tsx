@@ -1,59 +1,48 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt, FaReact, FaJs } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaReact,
+  FaJs,
+  FaPython,
+} from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiFlask,
+  SiMongodb,
+  SiBootstrap,
+} from "react-icons/si";
+import { MdHealthAndSafety } from "react-icons/md";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "Health Inspector",
     description:
-      "A full-stack e-commerce solution with user authentication, payment integration, and admin dashboard. Built with modern technologies for optimal performance.",
+      "A comprehensive health monitoring application built with Flask and MongoDB. Features disease prediction using machine learning, health record management, and user-friendly interface for tracking personal health metrics.",
     technologies: [
-      <FaReact key="react" />,
-      <SiNextdotjs key="next" />,
-      <SiTailwindcss key="tailwind" />,
+      <FaPython key="python" className="text-blue-500" />,
+      <SiFlask key="flask" className="text-green-600" />,
+      <SiMongodb key="mongodb" className="text-green-500" />,
+      <SiBootstrap key="bootstrap" className="text-purple-600" />,
     ],
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "https://healthinspector-demo.herokuapp.com",
+    githubLink: "https://github.com/alwinjaison18/HealthInspector",
     category: "Full Stack",
   },
   {
-    title: "Task Management App",
+    title: "Personal Portfolio Website",
     description:
-      "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+      "A modern, responsive portfolio website with dark/light themes, smooth animations using Framer Motion, and interactive particle background. Built with Next.js and Tailwind CSS for optimal performance.",
     technologies: [
-      <FaReact key="react" />,
-      <FaJs key="js" />,
-      <SiTailwindcss key="tailwind" />,
+      <SiNextdotjs key="next" className="text-black dark:text-white" />,
+      <FaReact key="react" className="text-blue-500" />,
+      <SiTailwindcss key="tailwind" className="text-cyan-500" />,
+      <FaJs key="js" className="text-yellow-500" />,
     ],
-    liveLink: "#",
-    githubLink: "#",
-    category: "Frontend",
-  },
-  {
-    title: "Weather Dashboard",
-    description:
-      "A responsive weather application with location-based forecasts, interactive maps, and detailed weather analytics using external APIs.",
-    technologies: [
-      <FaJs key="js" />,
-      <FaReact key="react" />,
-      <SiTailwindcss key="tailwind" />,
-    ],
-    liveLink: "#",
-    githubLink: "#",
-    category: "Frontend",
-  },
-  {
-    title: "Portfolio Website",
-    description:
-      "A modern, responsive portfolio website with dark/light themes, smooth animations, and interactive particle background.",
-    technologies: [
-      <SiNextdotjs key="next" />,
-      <SiTailwindcss key="tailwind" />,
-      <FaReact key="react" />,
-    ],
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "https://alwinjaison18.github.io/personal-website",
+    githubLink: "https://github.com/alwinjaison18/personal-website",
     category: "Frontend",
   },
 ];
@@ -77,8 +66,8 @@ const Projects = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-blue-500 mx-auto rounded-full mb-4"></div>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and
-            passion for development
+            Here are my featured projects that showcase my skills in full-stack
+            development, machine learning, and modern web technologies.
           </p>
         </motion.div>
 
@@ -185,7 +174,7 @@ const Projects = () => {
             Want to see more of my work?
           </p>
           <a
-            href="https://github.com"
+            href="https://github.com/alwinjaison18"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white py-3 px-8 rounded-full hover:from-gray-900 hover:to-black transition-all duration-300 transform hover:scale-105"

@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { FaUser, FaCode, FaGraduationCap } from "react-icons/fa";
+import Image from "next/image";
 
 const About = () => {
   return (
@@ -147,9 +148,18 @@ const About = () => {
             className="flex justify-center order-2 md:order-1"
           >
             <div className="relative">
-              <div className="w-72 h-72 md:w-80 md:h-80 rounded-2xl bg-gradient-to-br from-blue-500 to-teal-400 p-1">
-                <div className="w-full h-full rounded-2xl bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                  <FaUser className="text-8xl text-gray-400" />
+              {/* Profile Picture Container with Gradient Border */}
+              <div className="w-72 h-72 md:w-80 md:h-80 rounded-2xl bg-gradient-to-br from-blue-500 to-teal-400 p-1 shadow-2xl">
+                <div className="w-full h-full rounded-2xl overflow-hidden bg-white dark:bg-gray-800 relative">
+                  <Image
+                    src="/profile.png"
+                    alt="Alwin Jaison - Profile Picture"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                  />
+                  {/* Overlay for better contrast in different themes */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent dark:from-white/5"></div>
                 </div>
               </div>
               {/* Floating icons */}
@@ -167,6 +177,9 @@ const About = () => {
               >
                 <FaGraduationCap className="text-xl" />
               </motion.div>
+
+              {/* Decorative elements around the image */}
+              <div className="absolute -z-10 top-4 left-4 w-full h-full rounded-2xl bg-gradient-to-br from-blue-500/20 to-teal-400/20 blur-xl"></div>
             </div>
           </motion.div>
 
@@ -196,7 +209,7 @@ const About = () => {
               <div className="grid grid-cols-3 gap-6 mt-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">
-                    2+
+                    5+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">
                     Years Learning
@@ -204,7 +217,7 @@ const About = () => {
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-teal-600 dark:text-teal-400">
-                    10+
+                    4+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">
                     Projects Built
@@ -212,12 +225,35 @@ const About = () => {
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
-                    5+
+                    8+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">
                     Technologies
                   </div>
                 </div>
+              </div>
+
+              {/* Download Resume Button */}
+              <div className="mt-8 pt-6">
+                <a
+                  href="/resume.pdf"
+                  download="Alwin_Jaison_Resume.pdf"
+                  target="_blank"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-teal-500 text-white py-3 px-6 rounded-full hover:from-blue-700 hover:to-teal-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl font-semibold"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Download Resume
+                </a>
               </div>
             </div>
           </motion.div>

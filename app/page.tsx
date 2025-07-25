@@ -9,13 +9,11 @@ import Footer from "./components/Footer";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import ParticleBackground from "./components/ParticleBackground";
-import TerminalMode from "./components/TerminalMode";
 
 export default function Home() {
   return (
     <>
       <ParticleBackground />
-      <TerminalMode />
       <main className="relative z-10 bg-light-bg text-light-text dark:bg-gray-900 dark:text-white">
         <Navbar />
         <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
@@ -61,6 +59,8 @@ export default function Home() {
             </a>
             <a
               href="/resume.pdf"
+              download="Alwin_Jaison_Resume.pdf"
+              target="_blank"
               className="group relative inline-block border-2 border-blue-500 text-blue-500 dark:border-teal-400 dark:text-teal-400 font-bold py-4 px-10 rounded-full text-lg hover:bg-blue-500 hover:text-white dark:hover:bg-teal-400 dark:hover:text-gray-900 transition-all duration-300 transform hover:scale-110"
             >
               <span className="relative z-10">Download Resume</span>

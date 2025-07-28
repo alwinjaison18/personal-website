@@ -10,15 +10,41 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    setTimeout(() => {
+    setSubmitStatus("idle");
+
+    try {
+      // Using your actual Formspree form ID
+      const response = await fetch("https://formspree.io/f/myzpjjly", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _replyto: formData.email, // This sets the reply-to address
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: "", email: "", message: "" });
-    }, 2000);
+    }
   };
 
   const handleChange = (
@@ -207,18 +233,42 @@ const Contact = () => {
                   </>
                 )}
               </motion.button>
+
+              {/* Status Messages */}
+              {submitStatus === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-green-100 dark:bg-green-900 border border-green-400 text-green-700 dark:text-green-300 px-4 py-3 rounded-xl"
+                >
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </motion.div>
+              )}
+
+              {submitStatus === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-red-100 dark:bg-red-900 border border-red-400 text-red-700 dark:text-red-300 px-4 py-3 rounded-xl"
+                >
+                  ❌ Failed to send message. Please try again or email me
+                  directly.
+                </motion.div>
+              )}
             </form>
 
             {/* Success message area */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="mt-6 text-center"
-            >
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                I'll get back to you as soon as possible! 🚀
-              </p>
-            </motion.div>
+            {submitStatus === "idle" && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="mt-6 text-center"
+              >
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  I'll get back to you as soon as possible! 🚀
+                </p>
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </div>

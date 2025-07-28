@@ -232,29 +232,6 @@ const About = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Download Resume Button */}
-              <div className="mt-8 pt-6">
-                <a
-                  href="/resume.pdf"
-                  download="Alwin_Jaison_Resume.pdf"
-                  target="_blank"
-                  className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-teal-500 text-white py-3 px-6 rounded-full hover:from-blue-700 hover:to-teal-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl font-semibold"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Download Resume
-                </a>
-              </div>
             </div>
           </motion.div>
         </div>

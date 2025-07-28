@@ -1,12 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import {
-  FaGithub,
-  FaExternalLinkAlt,
-  FaReact,
-  FaJs,
-  FaPython,
-} from "react-icons/fa";
+import { FaGithub, FaReact, FaJs, FaPython } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -27,7 +21,6 @@ const projects = [
       <SiMongodb key="mongodb" className="text-green-500" />,
       <SiBootstrap key="bootstrap" className="text-purple-600" />,
     ],
-    liveLink: "https://healthinspector-demo.herokuapp.com",
     githubLink: "https://github.com/alwinjaison18/HealthInspector",
     category: "Full Stack",
   },
@@ -41,7 +34,6 @@ const projects = [
       <SiTailwindcss key="tailwind" className="text-cyan-500" />,
       <FaJs key="js" className="text-yellow-500" />,
     ],
-    liveLink: "https://alwinjaison18.github.io/personal-website",
     githubLink: "https://github.com/alwinjaison18/personal-website",
     category: "Frontend",
   },
@@ -79,7 +71,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -10 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-gray-700"
+              className="group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-gray-700 flex flex-col h-full"
             >
               {/* Project Image/Preview */}
               <div className="relative h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-teal-400 flex items-center justify-center overflow-hidden">
@@ -92,16 +84,11 @@ const Projects = () => {
                 </div>
 
                 {/* Overlay with links */}
-                <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <a
-                    href={project.liveLink}
-                    className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full transition-colors duration-300"
-                    aria-label="View Live Project"
-                  >
-                    <FaExternalLinkAlt className="text-lg" />
-                  </a>
+                <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <a
                     href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-gray-800 hover:bg-gray-900 text-white p-3 rounded-full transition-colors duration-300"
                     aria-label="View Source Code"
                   >
@@ -111,48 +98,43 @@ const Projects = () => {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                  {project.description}
-                </p>
+              <div className="p-6 flex flex-col h-full">
+                <div className="flex-grow">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
 
-                {/* Technologies */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                    Built with:
-                  </span>
-                  <div className="flex gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="text-xl text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                  {/* Technologies */}
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                      Built with:
+                    </span>
+                    <div className="flex gap-2">
+                      {project.technologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="text-xl text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-3">
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 px-4 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 text-center font-medium"
-                  >
-                    Live Demo
-                  </a>
+                {/* Action Buttons - Always at bottom */}
+                <div className="mt-auto pt-2">
                   <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 hover:text-blue-500 py-2 px-4 rounded-lg transition-all duration-300"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-gray-800 dark:bg-gray-700 text-white py-3 px-6 rounded-lg hover:bg-gray-900 dark:hover:bg-gray-600 transition-all duration-300 font-medium"
                   >
                     <FaGithub className="text-lg" />
+                    View on GitHub
                   </a>
                 </div>
               </div>

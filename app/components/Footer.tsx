@@ -68,7 +68,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex space-x-4">
               <motion.a
-                href="https://github.com"
+                href="https://github.com/alwinjaison18"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -77,7 +77,7 @@ const Footer = () => {
                 <FaGithub className="text-xl group-hover:text-blue-400" />
               </motion.a>
               <motion.a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/alwinjaison-cs/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -85,7 +85,7 @@ const Footer = () => {
               >
                 <FaLinkedin className="text-xl group-hover:text-blue-500" />
               </motion.a>
-              <motion.a
+              {/* <motion.a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -93,7 +93,7 @@ const Footer = () => {
                 className="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition-all duration-300 group"
               >
                 <FaTwitter className="text-xl group-hover:text-blue-400" />
-              </motion.a>
+              </motion.a> */}
             </div>
           </motion.div>
         </div>
